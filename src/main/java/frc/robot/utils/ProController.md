@@ -13,7 +13,7 @@ A custom class for handling Xbox controller inputs with support for advanced con
 Constructs an instance of the controller.
 
 **Parameters:**
-- `port` - The port index on the Driver Station that the controller is plugged into.
+- `port` - The port index on the Driver Station that the controller is plugged into. 
 
 ---
 
