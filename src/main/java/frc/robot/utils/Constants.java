@@ -119,33 +119,33 @@ public final class Constants {
     //IS THE GYRO REVERSED??????
     public static final boolean gyroReversed = false;
     //RIGHT AND LEFT NEO 55OS FOR INTAKE
-    public static final int rightIntakeCanId = 12;
-    public static final int leftIntakeCanId = 11;
-    //RIGHT AND LEFT UNGEARBOXED NEOS FOR OUTTAKE
-    public static final int rightOuttakeCanId = 21;
-    public static final int leftOuttakeCanId = 22;
-    //RIGHT AND LEFT TORQUE GEARBOXED NEOS FOR ARM MOVEMENT
-    public static final int leftArmMotorCanId = 31;
-    public static final int rightArmMotorCanId = 32;
+    // public static final int rightIntakeCanId = 12;
+    // public static final int leftIntakeCanId = 11;
+    // //RIGHT AND LEFT UNGEARBOXED NEOS FOR OUTTAKE
+    // public static final int rightOuttakeCanId = 21;
+    // public static final int leftOuttakeCanId = 22;
+    // //RIGHT AND LEFT TORQUE GEARBOXED NEOS FOR ARM MOVEMENT
+    // public static final int leftArmMotorCanId = 31;
+    // public static final int rightArmMotorCanId = 32;
 
 
-    public static CANSparkMax rightIntake = new CANSparkMax(DriveConstants.rightIntakeCanId, MotorType.kBrushless);    
-    public static CANSparkMax leftIntake = new CANSparkMax(DriveConstants.leftIntakeCanId, MotorType.kBrushless); 
-    public static CANSparkMax leftArm = new CANSparkMax(DriveConstants.leftArmMotorCanId, MotorType.kBrushless);    
-    public static CANSparkMax rightArm = new CANSparkMax(DriveConstants.rightArmMotorCanId, MotorType.kBrushless); 
+    // public static CANSparkMax rightIntake = new CANSparkMax(DriveConstants.rightIntakeCanId, MotorType.kBrushless);    
+    // public static CANSparkMax leftIntake = new CANSparkMax(DriveConstants.leftIntakeCanId, MotorType.kBrushless); 
+    // public static CANSparkMax leftArm = new CANSparkMax(DriveConstants.leftArmMotorCanId, MotorType.kBrushless);    
+    // public static CANSparkMax rightArm = new CANSparkMax(DriveConstants.rightArmMotorCanId, MotorType.kBrushless); 
 
 
 
 
-    public static final AbsoluteEncoder armEncoder = leftArm.getAbsoluteEncoder(Type.kDutyCycle);
+    // public static final AbsoluteEncoder armEncoder = leftArm.getAbsoluteEncoder(Type.kDutyCycle);
 
 
     
 
-    public static Compressor compressor = new Compressor(PneumaticsModuleType.CTREPCM);
-    public static double compressorCurrent = compressor.getCurrent(); //THE CURRENT DRAW OF THE COMPRESSOR
-    public static boolean compressorOn = compressor.isEnabled(); //WHETHER THE COMPRESSOR IS ON
-    public static boolean compressorPressure = compressor.getPressureSwitchValue(); //WHETHER THE TANK IS FULL OR NOT
+    // public static Compressor compressor = new Compressor(PneumaticsModuleType.CTREPCM);
+    // public static double compressorCurrent = compressor.getCurrent(); //THE CURRENT DRAW OF THE COMPRESSOR
+    // public static boolean compressorOn = compressor.isEnabled(); //WHETHER THE COMPRESSOR IS ON
+    // public static boolean compressorPressure = compressor.getPressureSwitchValue(); //WHETHER THE TANK IS FULL OR NOT
 
   }
 
