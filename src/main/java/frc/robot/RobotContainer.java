@@ -26,7 +26,7 @@ public class RobotContainer {
   public static CommandXboxController primaryDriver = new CommandXboxController(0);
   public static CommandXboxController secondaryDriver = new CommandXboxController(1);
 
-  public static DoubleSolenoid  wrongSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 5, 4);
+  public static DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 5, 4);
 
   
 
