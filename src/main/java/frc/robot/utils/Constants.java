@@ -2,25 +2,16 @@
 //Open Source Software; you can modify and/or share it under the terms of
 //WPILib BSD license file in the root directory of this project.
 
-
 package frc.robot.utils;
 
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
-import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.CANSparkBase.IdleMode;
-import com.revrobotics.CANSparkLowLevel.MotorType;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.SparkAbsoluteEncoder.Type;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.PneumaticsModuleType;
-
-
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -70,14 +61,14 @@ public final class Constants {
     public static final double encCountsPerRev = 4096;
     public static final double wheelDiamIn = 3;
 
-    // HolonomicPathFollowerConfig
-    public static final HolonomicPathFollowerConfig holonomicPathFollowerConfig = new HolonomicPathFollowerConfig(
-        new PIDConstants(5.0, 0, 0), // Translation PID constants
-        new PIDConstants(5, 0, 0.0), // Rotation PID constants
-        4.8, // Max module speed, in m/s
-        0.4, // Drive base radius in meters. Distance from robot center to furthest module.
-        new ReplanningConfig() // Default path replanning config. See the API for the options here
-    );
+    // // HolonomicPathFollowerConfig
+    // public static final HolonomicPathFollowerConfig holonomicPathFollowerConfig = new HolonomicPathFollowerConfig(
+    //     new PIDConstants(5.0, 0, 0), // Translation PID constants
+    //     new PIDConstants(5, 0, 0.0), // Rotation PID constants
+    //     4.8, // Max module speed, in m/s
+    //     0.4, // Drive base radius in meters. Distance from robot center to furthest module.
+    //     new ReplanningConfig() // Default path replanning config. See the API for the options here
+    // );
 
 
     //CHASSIS CONFIG
@@ -118,31 +109,13 @@ public final class Constants {
     public static final int rearRightTurningCanId = 4;
     //IS THE GYRO REVERSED??????
     public static final boolean gyroReversed = false;
-    //RIGHT AND LEFT NEO 55OS FOR INTAKE
-    // public static final int rightIntakeCanId = 12;
-    // public static final int leftIntakeCanId = 11;
-    // //RIGHT AND LEFT UNGEARBOXED NEOS FOR OUTTAKE
-    // public static final int rightOuttakeCanId = 21;
-    // public static final int leftOuttakeCanId = 22;
-
-
-    // public static CANSparkMax rightIntake = new CANSparkMax(DriveConstants.rightIntakeCanId, MotorType.kBrushless);    
-    // public static CANSparkMax leftIntake = new CANSparkMax(DriveConstants.leftIntakeCanId, MotorType.kBrushless); 
-    // public static CANSparkMax leftArm = new CANSparkMax(DriveConstants.leftArmMotorCanId, MotorType.kBrushless);    
-    // public static CANSparkMax rightArm = new CANSparkMax(DriveConstants.rightArmMotorCanId, MotorType.kBrushless); 
-
-
-
-
-    // public static final AbsoluteEncoder armEncoder = leftArm.getAbsoluteEncoder(Type.kDutyCycle);
-
-
-    
-
-    // public static Compressor compressor = new Compressor(PneumaticsModuleType.CTREPCM);
-    // public static double compressorCurrent = compressor.getCurrent(); //THE CURRENT DRAW OF THE COMPRESSOR
-    // public static boolean compressorOn = compressor.isEnabled(); //WHETHER THE COMPRESSOR IS ON
-    // public static boolean compressorPressure = compressor.getPressureSwitchValue(); //WHETHER THE TANK IS FULL OR NOT
+    // RIGHT AND LEFT NEO 55OS FOR INTAKE
+    public static final int intakeCanID = 11;
+    //RIGHT AND LEFT UNGEARBOXED NOES FOR OUTTAKE
+    public static final int rightOuttakeCanID = 21;
+    public static final int leftOuttakeCanID = 22;
+    //NEO FOR STORAGE
+    public static final int storageCanID = 32;
 
   }
 

@@ -5,24 +5,39 @@
 package frc.robot.subsystems.intake_shooter;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.arm.Move;
 
 public class Intake extends Command {
-  /** Creates a new Intake. */
+  /** Creates a new Intake. */  
+  private final Move moveCommand;
+
   public Intake() {
     // Use addRequirements() here to declare subsystem dependencies.
+    this.moveCommand = new Move();
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    CommandScheduler.getInstance().schedule(moveCommand);
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+
+    Intake_Shooter.intakeMotor.set(1);
+    Intake_Shooter.storageMotor.set(0.2);
+  }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+      Intake_Shooter.intakeMotor.set(0);
+      Intake_Shooter.storageMotor.set(0);
+      moveCommand.cancel();
+  }
 
   // Returns true when the command should end.
   @Override

@@ -114,21 +114,21 @@ public class DriveSubsystem extends SubsystemBase {
       new Pose2d(new Translation2d(0, 0), 
       Rotation2d.fromDegrees(0))); 
 
-      AutoBuilder.configureHolonomic(
-        this::getPose, //POSE SUPPLIER
-        this::resetOdometry, //METHOD TO RESET ODOMETRY (IF IT HAS A STARTING POS)
-        this::getRobotRelativeSpeeds, //METHOD TO GET CHASSIS SPEEDS FROM THE STATE OF EACH MODULE
-        this::driveRobotRelative, //METHOD TO DRIVE THE ROBOT TO SPECIFIC CHASSIS SPEEDS
-        Constants.DriveConstants.holonomicPathFollowerConfig, //PATH FOLLOWER CONFIG
-        () -> {
-          //BOOL SUPPLIER CONTROLS WHEN THE PATH IS MIRRORED TO THE RED SIDE
-          //THIS WILL FLIP THE PATH BEING FOLLOWED TO THE RED SIDE
-          //THE ORIGIN WILL REMAIN ON THE BLUE SIDE
-          var alliance = DriverStation.getAlliance();
-          return alliance.map(a -> a == DriverStation.Alliance.Red).orElse(false);
-        },
-        this
-);
+//       AutoBuilder.configureHolonomic(
+//         this::getPose, //POSE SUPPLIER
+//         this::resetOdometry, //METHOD TO RESET ODOMETRY (IF IT HAS A STARTING POS)
+//         this::getRobotRelativeSpeeds, //METHOD TO GET CHASSIS SPEEDS FROM THE STATE OF EACH MODULE
+//         this::driveRobotRelative, //METHOD TO DRIVE THE ROBOT TO SPECIFIC CHASSIS SPEEDS
+//         Constants.DriveConstants.holonomicPathFollowerConfig, //PATH FOLLOWER CONFIG
+//         () -> {
+//           //BOOL SUPPLIER CONTROLS WHEN THE PATH IS MIRRORED TO THE RED SIDE
+//           //THIS WILL FLIP THE PATH BEING FOLLOWED TO THE RED SIDE
+//           //THE ORIGIN WILL REMAIN ON THE BLUE SIDE
+//           var alliance = DriverStation.getAlliance();
+//           return alliance.map(a -> a == DriverStation.Alliance.Red).orElse(false);
+//         },
+//         this
+// );
         
 
   }
