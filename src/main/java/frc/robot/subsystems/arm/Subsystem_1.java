@@ -2,13 +2,13 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.subsystems.subsystem_2;
+package frc.robot.subsystems.arm;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class subsystem_2 extends SubsystemBase {
-  /** Creates a new subsystem_2. */
-  public subsystem_2() {}
+public class Subsystem_1 extends SubsystemBase {
+  /** Creates a new subsystem_3. */
+  public Subsystem_1() {}
 
   @Override
   public void periodic() {
