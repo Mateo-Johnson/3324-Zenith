@@ -5,13 +5,10 @@
 
 package frc.robot;
 
-import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.MathUtil;
-import edu.wpi.first.net.PortForwarder;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.drivetrain.DriveSubsystem;
 import frc.robot.utils.Constants.ControllerConstants;
@@ -42,12 +39,6 @@ public class RobotContainer {
 
 
     configureButtonBindings(); //CONFIGURE BINDINGS
-
-    autoChooser = AutoBuilder.buildAutoChooser();
-    SmartDashboard.putData("Auto Chooser", autoChooser);
-
-    PortForwarder.add(5800, "limelight-arm.local", 5800);
-    PortForwarder.add(5800, "limelight-front.local", 5800);
 
     ///CONFIGURE DEFAULT COMMANDS
     drivetrain.setDefaultCommand(

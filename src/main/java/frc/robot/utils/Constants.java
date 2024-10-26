@@ -124,9 +124,6 @@ public final class Constants {
     // //RIGHT AND LEFT UNGEARBOXED NEOS FOR OUTTAKE
     // public static final int rightOuttakeCanId = 21;
     // public static final int leftOuttakeCanId = 22;
-    // //RIGHT AND LEFT TORQUE GEARBOXED NEOS FOR ARM MOVEMENT
-    // public static final int leftArmMotorCanId = 31;
-    // public static final int rightArmMotorCanId = 32;
 
 
     // public static CANSparkMax rightIntake = new CANSparkMax(DriveConstants.rightIntakeCanId, MotorType.kBrushless);    
@@ -154,7 +151,7 @@ public final class Constants {
 
 
     public static final int low = 12; //LOW SPEED PINION GEAR
-    public static final int medium = 13; //mID SPEED PINION GEAR
+    public static final int medium = 13; //MID SPEED PINION GEAR
     public static final int high = 14; //HIGH SPEED PINION GEAR
 
 

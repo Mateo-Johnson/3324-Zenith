@@ -2,13 +2,13 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.subsystems.arm;
+package frc.robot.subsystems.intake_shooter;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Subsystem_1 extends SubsystemBase {
-  /** Creates a new subsystem_3. */
-  public Subsystem_1() {}
+public class Intake_Shooter extends SubsystemBase {
+  /** Creates a new subsystem_2. */
+  public Intake_Shooter() {}
 
   @Override
   public void periodic() {
