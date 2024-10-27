@@ -9,9 +9,6 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-
-
-
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -22,8 +19,6 @@ public class Robot extends TimedRobot {
 
   private Command autonomousCommand;
   private RobotContainer robotContainer; 
-  
-
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -32,17 +27,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     //Instantiate our RobotContainer.  This will perform all our button bindings, and put our
-    //autonomous chooser on the dashboard.
     robotContainer = new RobotContainer();
 
-    //chooser.setDefaultOption("Default Auto", defaultAuto);
-    //chooser.addOption("My Auto 1", customAuto1);
-    //chooser.addOption("My Auto 2", customAuto2);
-    //chooser.addOption("My Auto 3", customAuto3);
-    //chooser.addOption("My Auto 4", customAuto4);
-    //chooser.addOption("My Auto 5", customAuto5);
-    //chooser.addOption("My Auto 6", customAuto6);
-    //SmartDashboard.putData("Auto Choices", chooser);
    
   }
 
@@ -76,10 +62,6 @@ public class Robot extends TimedRobot {
     if (autonomousCommand != null) {
       autonomousCommand.schedule();
       }
-
-
-    //autoSelected = chooser.getSelected();
-    //System.out.println("Auto Selected: " + autoSelected);
   }
 
 
