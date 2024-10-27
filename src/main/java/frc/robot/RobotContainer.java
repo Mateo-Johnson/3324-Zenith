@@ -4,11 +4,11 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.subsystems.arm.MoveArm;
+import frc.robot.subsystems.arm.commands.MoveArm;
 import frc.robot.subsystems.drivetrain.DriveSubsystem;
-import frc.robot.subsystems.intake_shooter.Intake;
-import frc.robot.subsystems.intake_shooter.Purge;
-import frc.robot.subsystems.intake_shooter.Shoot;
+import frc.robot.subsystems.intake_shooter.commands.Intake;
+import frc.robot.subsystems.intake_shooter.commands.Purge;
+import frc.robot.subsystems.intake_shooter.commands.Outtake;
 import frc.robot.utils.Constants.ControllerConstants;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
@@ -43,7 +43,7 @@ public class RobotContainer {
         //DEFINE ALL OF THE BUTTON BINDINGS HERE PLEASE AND THANKS
         primary.a().whileTrue(new MoveArm());
         primary.leftTrigger().whileTrue(new Intake());
-        primary.rightTrigger().whileTrue(new Shoot());
+        primary.rightTrigger().whileTrue(new Outtake());
         primary.rightBumper().whileTrue(new Purge());
 
     }

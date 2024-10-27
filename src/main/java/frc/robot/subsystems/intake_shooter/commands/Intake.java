@@ -1,8 +1,9 @@
-package frc.robot.subsystems.intake_shooter;
+package frc.robot.subsystems.intake_shooter.commands;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.RobotContainer; 
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.intake_shooter.Intake_Shooter; 
 
 public class Intake extends Command {
   DoubleSolenoid solenoid;
