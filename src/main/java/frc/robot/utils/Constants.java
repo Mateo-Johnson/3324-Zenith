@@ -25,15 +25,6 @@ import edu.wpi.first.math.util.Units;
 
 
 public final class Constants {
-  public static final class FieldConstants {
-    //DEFINE FIELD DIMENSIONS
-    public static final double field_length = 54.0; //FEET
-    public static final double field_width = 27.0; //FEET
-    //DEFINE ORIGIN POSITION
-    public static final double origin_y = 0.0;
-    public static final double origin_x = 0.0;
-
-  }
 
   public static final class DriveConstants {
 
