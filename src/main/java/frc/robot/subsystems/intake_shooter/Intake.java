@@ -1,45 +1,39 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.subsystems.intake_shooter;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import frc.robot.subsystems.arm.Move;
+import frc.robot.RobotContainer; 
 
 public class Intake extends Command {
-  /** Creates a new Intake. */  
-  private final Move moveCommand;
-
+  DoubleSolenoid solenoid;
   public Intake() {
-    // Use addRequirements() here to declare subsystem dependencies.
-    this.moveCommand = new Move();
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    CommandScheduler.getInstance().schedule(moveCommand);
+    solenoid = RobotContainer.solenoid;
   }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    //MOVE THE ARM UP
+    solenoid.set(DoubleSolenoid.Value.kForward);
 
-    Intake_Shooter.intakeMotor.set(1);
-    Intake_Shooter.storageMotor.set(0.2);
+    // GET THE TRIGGER VALUE (BETWEEN 0 AND 1)
+    double triggerValue = RobotContainer.primary.getLeftTriggerAxis(); 
+
+    // SET THE SPEEDS BASED ON THE TRIGGER VALUE
+    Intake_Shooter.intakeMotor.set(triggerValue); // SET INTAKE SPEED
+    Intake_Shooter.storageMotor.set(0.2); // ADJUST STORAGE MOTOR SPEED AS NEEDED
   }
 
-  // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-      Intake_Shooter.intakeMotor.set(0);
-      Intake_Shooter.storageMotor.set(0);
-      moveCommand.cancel();
+    Intake_Shooter.intakeMotor.set(0);
+    Intake_Shooter.storageMotor.set(0);
+    solenoid.set(DoubleSolenoid.Value.kOff);
   }
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;

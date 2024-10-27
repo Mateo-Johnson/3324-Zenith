@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.RobotContainer;
 
-public class Move extends Command {
+public class MoveArm extends Command {
   /** Creates a new Move. */
   DoubleSolenoid solenoid;
   public static boolean extended;
-  public Move() {
+  public MoveArm() {
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
