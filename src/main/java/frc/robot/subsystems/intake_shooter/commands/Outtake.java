@@ -9,6 +9,7 @@ import com.revrobotics.RelativeEncoder;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.intake_shooter.Intake_Shooter;
+import edu.wpi.first.wpilibj.PowerDistribution; // IMPORT POWER DISTRIBUTION FOR BATTERY VOLTAGE
 
 public class Outtake extends Command {
   private final CANSparkMax leftOuttakeMotor = Intake_Shooter.leftOuttakeMotor;
@@ -16,7 +17,9 @@ public class Outtake extends Command {
   private final RelativeEncoder leftEncoder = leftOuttakeMotor.getEncoder();
   private final RelativeEncoder rightEncoder = rightOuttakeMotor.getEncoder();
 
-  private static final double VELOCITY_THRESHOLD = 0.34; // ADJUST THIS THRESHOLD AS NEEDED
+  private static final double baseThreshold = 0.34; // BASE THRESHOLD
+
+  private final PowerDistribution pdp = new PowerDistribution(); // CREATE POWER DISTRIBUTION OBJECT
 
   public Outtake() {
   }
@@ -33,11 +36,19 @@ public class Outtake extends Command {
     double leftVelocity = leftEncoder.getVelocity();
     double rightVelocity = rightEncoder.getVelocity();
 
+    // GET THE CURRENT BATTERY VOLTAGE
+    double batteryVoltage = pdp.getVoltage();
+
+    // SCALE THE VELOCITY THRESHOLD BASED ON BATTERY VOLTAGE
+    double scaledThreshold = baseThreshold * ((batteryVoltage / 12.0) * 0.7); // ASSUMING 12V IS NOMINAL
+
     SmartDashboard.putNumber("Left Outtake Velocity", leftVelocity);
     SmartDashboard.putNumber("Right Outtake Velocity", rightVelocity);
+    SmartDashboard.putNumber("Battery Voltage", batteryVoltage);
+    SmartDashboard.putNumber("Scaled Velocity Threshold", scaledThreshold);
 
-    // CHECK IF BOTH MOTORS ARE ABOVE THE THRESHOLD
-    if (Math.abs(leftVelocity) >= VELOCITY_THRESHOLD && Math.abs(rightVelocity) >= VELOCITY_THRESHOLD) {
+    // CHECK IF BOTH MOTORS ARE ABOVE THE SCALED THRESHOLD
+    if (Math.abs(leftVelocity) >= scaledThreshold && Math.abs(rightVelocity) >= scaledThreshold) {
       Intake_Shooter.storageMotor.set(0.7); // FEED THE GAME PIECE INTO THE SHOOTER
     } else {
       Intake_Shooter.storageMotor.set(0); // STOP THE STORAGE MOTOR IF NOT AT SPEED
