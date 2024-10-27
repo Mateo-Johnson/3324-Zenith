@@ -1,1 +1,1 @@
-This is the 2024-2025 code for Team 3324 - The Metrobots! On this repo, we also have docs for our swerve from the last couple seasons!
+THIS IS THE CODE FOR CORI 2024 (OCT 27TH). THIS ROBOT WAS COMPLETED IN 10 HOURS, AND THIS CODE WAS WRITTEN IN 5 THE NIGHT OF THE 26TH/MORNING OF THE 27TH
