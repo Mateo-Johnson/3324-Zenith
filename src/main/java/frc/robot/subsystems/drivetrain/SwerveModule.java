@@ -39,19 +39,14 @@ public class SwerveModule {
   private double chassisAngularOffset = 0;
   private SwerveModuleState desiredState = new SwerveModuleState(0.0, new Rotation2d());
 
-
-
-
   //CREATES THE MAXSWERVEMODULE AND CONFIGURES EVERYTHING
   public SwerveModule(int drivingCANId, int turningCANId, double chassisAngularOffset) {
     drivingSparkMax = new CANSparkMax(drivingCANId, MotorType.kBrushless);
     turningSparkMax = new CANSparkMax(turningCANId, MotorType.kBrushless);
 
-
     //FACTORY RESET SO WE GET THE SPARKMAXES TO A KNOWN STATE BEFORE CONFIGURING THEM
     drivingSparkMax.restoreFactoryDefaults();
     turningSparkMax.restoreFactoryDefaults();
-
 
     //SETUP ENCODERS AND PID CONTROLLERS FOR THE DRIVING AND TURNING SPARKS MAX
     drivingEncoder = drivingSparkMax.getEncoder();
@@ -61,31 +56,23 @@ public class SwerveModule {
     drivingPIDController.setFeedbackDevice(drivingEncoder);
     turningPIDController.setFeedbackDevice(turningEncoder);
 
-
     //APPLY POSITION AND VELOCITY CONVERSION FACTOR TO DRIVING ENCODER FOR M AND M/S FOR WPI SWERVE API
     drivingEncoder.setPositionConversionFactor(ModuleConstants.drivingEncoderPositionFactor);
     drivingEncoder.setVelocityConversionFactor(ModuleConstants.drivingEncoderVelocityFactor);
-
 
     //APPLY POSITION AND VELOCITY CONVERSION FACTORS TO TURNING ENCODER FOR WPI SWERVE API
     turningEncoder.setPositionConversionFactor(ModuleConstants.turningEncoderPositionFactor);
     turningEncoder.setVelocityConversionFactor(ModuleConstants.turningEncoderVelocityFactor);
 
-
     //INVERT TURNING ENCODER (DON'T ASK ME I DON'T KNOW WHY)
     turningEncoder.setInverted(ModuleConstants.turningEncoderInverted);
-
 
     //ENABLE PID WRAPAROUND (350° TO 10°)
     turningPIDController.setPositionPIDWrappingEnabled(true);
     turningPIDController.setPositionPIDWrappingMinInput(ModuleConstants.turningEncoderPositionPIDMinInput);
     turningPIDController.setPositionPIDWrappingMaxInput(ModuleConstants.turningEncoderPositionPIDMaxInput);
 
-
-
-
     //HEY ROOKIE PROGRAMMERS (AND MATEO) YOU NEED TO CHANGE THESE VALUES FOR EVERY DIFFERENT ROBOT
-
 
     //SET PID GAINS FOR DRIVING MOTOR (NOT FINAL VALUES MAKE SURE TO CHANGE)
     //ASK MATEO FOR PID TUNING PROCEDURES
@@ -96,7 +83,6 @@ public class SwerveModule {
     drivingPIDController.setOutputRange(ModuleConstants.drivingMinOutput,
         ModuleConstants.drivingMaxOutput);
 
-
     //SET PID GAINS FOR TURNING MOTOR (NOT FINAL VALUES MAKE SURE TO CHANGE)
     turningPIDController.setP(ModuleConstants.turningP);
     turningPIDController.setI(ModuleConstants.turningI);
@@ -105,24 +91,21 @@ public class SwerveModule {
     turningPIDController.setOutputRange(ModuleConstants.turningMinOutput,
         ModuleConstants.turningMaxOutput);
 
-
     drivingSparkMax.setIdleMode(ModuleConstants.drivingMotorIdleMode);
     turningSparkMax.setIdleMode(ModuleConstants.turningMotorIdleMode);
     drivingSparkMax.setSmartCurrentLimit(ModuleConstants.drivingMotorCurrentLimit);
     turningSparkMax.setSmartCurrentLimit(ModuleConstants.turningMotorCurrentLimit);
 
-
     //SAVE SPARKMAX CONFIGS SO MAKE SURE BROWNOUTS DON'T AFFECT ANYTHING
     drivingSparkMax.burnFlash();
     turningSparkMax.burnFlash();
-
 
     this.chassisAngularOffset = chassisAngularOffset;
     desiredState.angle = new Rotation2d(turningEncoder.getPosition());
     drivingEncoder.setPosition(0);
   }
 
-  //I FIXED THE ISSUE 😛😛😛😛😛 -MATEO AND RAHMA
+  //WE FIXED THE ISSUE 😛😛😛😛😛 -MATEO AND RAHMA (JAN 24)
   public double getRawTurnEncoder(){
     return turningEncoder.getPosition();
   } 

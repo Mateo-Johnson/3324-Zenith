@@ -25,7 +25,7 @@ import frc.robot.utils.Constants.DriveConstants;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
-public class DriveSubsystem extends SubsystemBase {
+public class Drivetrain extends SubsystemBase {
   //CREATE SWERVE MODULES
 
   public final SwerveDrivePoseEstimator swerveDrivePoseEstimator;
@@ -100,7 +100,7 @@ public class DriveSubsystem extends SubsystemBase {
 
 
   //CREATES A NEW DRIVESUBSYSTEM.
-  public DriveSubsystem() {
+  public Drivetrain() {
 
     getHeadingPose2d = Rotation2d.fromDegrees(getHeading());
 

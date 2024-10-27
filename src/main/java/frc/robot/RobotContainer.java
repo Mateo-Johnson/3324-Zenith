@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.arm.commands.MoveArm;
-import frc.robot.subsystems.drivetrain.DriveSubsystem;
+import frc.robot.subsystems.drivetrain.Drivetrain;
 import frc.robot.subsystems.intake_shooter.commands.Intake;
 import frc.robot.subsystems.intake_shooter.commands.Purge;
 import frc.robot.subsystems.intake_shooter.commands.Outtake;
@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.InstantCommand; // Import this at the top
 public class RobotContainer {
 
     //SUBSYSTEMS
-    private final DriveSubsystem drivetrain = new DriveSubsystem();
+    private final Drivetrain drivetrain = new Drivetrain();
 
     //DRIVER CONTROLLERS
     public static CommandXboxController primary = new CommandXboxController(0);
